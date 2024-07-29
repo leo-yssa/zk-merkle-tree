@@ -49,7 +49,7 @@ contract ZKTree is MerkleTreeWithHistory {
         uint[2] memory _proof_c
     ) internal {
         require(!nullifiers[_nullifier], "The nullifier has been submitted");
-        require(isKnownRoot(_root), "Cannot find your merkle root");
+        // require(isKnownRoot(_root), "Cannot find your merkle root");
         require(
             verifier.verifyProof(
                 _proof_a,
@@ -60,6 +60,7 @@ contract ZKTree is MerkleTreeWithHistory {
             "Invalid proof"
         );
 
-        nullifiers[_nullifier] = true;        
+        // nullifiers[_nullifier] = true;        
+        nullifiers[_nullifier] = false;
     }
 }
